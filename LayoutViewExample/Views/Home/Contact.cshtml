@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Contact Us";
+}
+
+<h1>Contact detail page</h1>
+<p>Details regarding contact are here</p>
+<button class="button button-blue-back" type="button" id="btn">Show Details</button>
+<div class="box contact-list" id="name">
+
+</div>
+<script>
+    document.querySelector("#btn").addEventListener("click",async function () {
+        /*document.getElementById("name").innerHTML = 'devanshi';*/
+        var response = await fetch("contact-details");
+        var Details = await response.text();
+        document.querySelector(".contact-list").innerHTML = Details;
+    })
+</script>
+

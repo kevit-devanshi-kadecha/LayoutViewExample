@@ -1,0 +1,67 @@
+﻿@model IEnumerable<int>
+
+@{
+    ViewData["Title"] = "EmployeeDetail";
+    var employees = new[]
+    {
+        new {
+            Name = "John Doe",
+            Department = "Human Resources",
+            Position = "HR Manager",
+            Email = "john.doe@example.com",
+            Phone = "(123) 456-7890"
+        },
+        new {
+            Name = "Jane Smith",
+            Department = "Marketing",
+            Position = "Marketing Director",
+            Email = "jane.smith@example.com",
+            Phone = "(456) 789-0123"
+        },
+        new {
+            Name = "Michael Johnson",
+            Department = "Finance",
+            Position = "Financial Analyst",
+            Email = "michael.johnson@example.com",
+            Phone = "(789) 012-3456"
+        }
+    };
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Details</title>
+</head>
+<body>
+    <h1>Employee Details</h1>
+
+    <table class="table w-100 mt">
+        <thead>
+            <tr>
+
+            </tr>
+        </thead>
+    </table>
+    @foreach (var employee in employees)
+    {
+        <div>
+            <p><strong>Name:</strong> @employee.Name</p>
+            <p><strong>Department:</strong> @employee.Department</p>
+            <p><strong>Position:</strong> @employee.Position</p>
+            <p><strong>Email:</strong> @employee.Email</p>
+            <p><strong>Phone:</strong> @employee.Phone</p>
+            <p><strong>SalaryID:</strong>@ViewBag.Instance_SalaryId</p>
+            <br />
+            <hr /> 
+        </div>
+    }
+    <h1>Salaries of employee are: </h1>
+    <ul class="list">
+        @foreach(int salary in Model)
+        {
+            <li>@salary</li>
+        }
+    </ul>
+</body>
+</html>

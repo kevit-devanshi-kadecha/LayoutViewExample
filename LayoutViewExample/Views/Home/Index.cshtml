@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Home";
+   
+}
+
+<h1>Welcome to home Page</h1>
+
+@* Call for ViewComponent *@
+@await Component.InvokeAsync("Grid")
+
+<div class="box">
+    Environment: @ViewBag.CurrentEnviornment
+</div>

@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Login";
+    /* Layout = "~/Views/Shared/signIn.cshtml" */;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link href="~/loginStyles.css" rel="stylesheet" />
+</head>
+<body>
+    <hr />
+    <div>
+        <h1>Login To Your Account!</h1>
+        <div class="login-container">
+            <form id="loginForm" action="Login" method="post" onsubmit="return validateForm()">
+                @Html.AntiForgeryToken()
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Username" required><br>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+
+                <input type="submit" value="Login">
+            </form>
+            <p id="errorMessage" class="error-message"></p>
+            <div class="signup-link">
+                <span>New User? <a href="@Url.Action("SignUp", "Account")">Sign Up</a></span><br><br>
+                <a href="@Url.Action("ForgotPassword", "Account")">Forgot password</a>
+            </div>
+        </div>
+    </div>
+    
+    <script src="~/script.js"></script>
+</body>
+</html>

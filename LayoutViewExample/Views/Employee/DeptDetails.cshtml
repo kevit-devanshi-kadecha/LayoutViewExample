@@ -1,0 +1,40 @@
+﻿@model IEnumerable<string>
+
+@{
+    ViewData["Title"] = "Employee-DepartmentDetails";
+
+    var employees = new[]
+    {
+        new { Name = "John Doe", Department = "Human Resources", Position = "HR Manager" },
+        new { Name = "Jane Smith", Department = "IT", Position = "Software Engineer" },
+        new { Name = "Emily Johnson", Department = "Marketing", Position = "Marketing Specialist" }
+    };
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Department Details</title>
+</head>
+<body>
+    <div class="employee-details">
+        <h1>Employee Details</h1>
+        @foreach (var emp in employees)
+        {
+            <div class="employee">
+                <h2>@emp.Name</h2>
+                <p><strong>Department:</strong> @emp.Department</p>
+                <p><strong>Position:</strong> @emp.Position</p>
+                <p></p>
+            </div>
+        }
+        <h1>Cities</h1>
+        <ul class="list">
+            @foreach (string city in Model)
+            {
+                <li>@city</li>
+            }
+        </ul>
+    </div>
+</body>
+</html>
